@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properti Indah - Jual & Sewa Rumah</title>
+<style>
+    /* ======= RESET & FONT ======= */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: linear-gradient(180deg, #f8fbff, #e6f5ff);
+        color: #333;
+        animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* ======= HEADER ======= */
+    header {
+        background: linear-gradient(90deg, #009ffd, #2a2a72);
+        color: white;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    nav li {
+        margin-left: 25px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    nav a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #ffb6c1;
+        transition: 0.3s;
+    }
+
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    /* ======= HERO SECTION ======= */
+    .hero {
+        text-align: center;
+        padding: 120px 20px;
+        background: linear-gradient(120deg, #89f7fe, #66a6ff);
+        color: #084b83;
+        animation: fadeSlide 1s ease-out;
+    }
+
+    @keyframes fadeSlide {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h2 {
+        font-size: 2.6em;
+        margin-bottom: 15px;
+        color: #052f5f;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        color: #064789;
+    }
+
+    .btn {
+        background: linear-gradient(90deg, #007cf0, #00dfd8);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 140, 255, 0.3);
+    }
+
+    .btn:hover {
+        background: linear-gradient(90deg, #00dfd8, #007cf0);
+        transform: scale(1.05);
+    }
+
+    /* ======= LISTING SECTION ======= */
+    .listing {
+        padding: 70px 40px;
+        background: linear-gradient(180deg, #ffffff, #ecf9ff);
+    }
+
+    .listing h2 {
+        text-align: center;
+        color: #052f5f;
+        font-size: 2.2em;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .listing h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #00dfd8, #007cf0);
+    }
+
+    .property-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        justify-items: center;
+    }
+
+    .property-card {
+        background-color: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+        max-width: 350px;
+        animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .property-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .property-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .property-card h3 {
+        color: #0a74da;
+        margin: 15px;
+        font-size: 1.3em;
+    }
+
+    .property-card p {
+        margin: 0 15px 8px;
+        font-size: 0.95em;
+        color: #444;
+    }
+
+    .btn-detail {
+        display: inline-block;
+        background: linear-gradient(90deg, #6a11cb, #2575fc);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        margin: 15px;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-detail:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 255, 0.3);
+    }
+
+    /* ======= FOOTER ======= */
+    footer {
+        background: linear-gradient(90deg, #2a2a72, #009ffd);
+        color: #f0faff;
+        text-align: center;
+        padding: 25px;
+        font-size: 0.95em;
+        margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        nav ul {
+            margin-top: 10px;
+        }
+
+        .hero {
+            padding: 80px 20px;
+        }
+    }
+</style>
+</head>
+
+<body>
+<header>
+    <h1>Properti Indah</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Listing</a></li>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Temukan Rumah Impian Anda Bersama Kami</h2>
+    <p>Jual, beli, dan sewa properti dengan mudah dan cepat.</p>
+    <a href="#" class="btn">Lihat Listing</a>
+</section>
+
+<section class="listing">
+    <h2>Properti Terbaru</h2>
+    <div class="property-container">
+        <div class="property-card">
+            <img src="c:/Users/Admin/Documents/Tugas Coding/UTS 2025/rumah.jpg" alt="Rumah Minimalis di Semarang">
+            <h3>Rumah Minimalis di Semarang</h3>
+            <p>Harga: Rp 850.000.000</p>
+            <p>3 Kamar Tidur | 2 Kamar Mandi | 120 m²</p>
+            <a href="#" class="btn-detail">Detail</a>
+        </div>
+
+        <div class="property-card">
+            <img src="c:/Users/Admin/Documents/Tugas Coding/UTS 2025/Apartemen.jpg" alt="Apartemen Mewah di Jakarta">
+            <h3>Apartemen Mewah di Jakarta</h3>
+            <p>Harga: Rp 1.200.000.000</p>
+            <p>2 Kamar Tidur | 1 Kamar Mandi | 90 m²</p>
+            <a href="#" class="btn-detail">Detail</a>
+        </div>
+
+        <div class="property-card">
+            <img src="c:/Users/Admin/Documents/Tugas Coding/UTS 2025/Villa.jpg" alt="Villa Nyaman di Bali">
+            <h3>Villa Nyaman di Bali</h3>
+            <p>Harga: Rp 2.500.000.000</p>
+            <p>4 Kamar Tidur | 3 Kamar Mandi | 200 m²</p>
+            <a href="#" class="btn-detail">Detail</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Properti Indah | Semua Hak Dilindungi</p>
+</footer>
+</body>
+</html>
